@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Productos</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/agregar-producto">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Contenedor tipo grid para que se vean bien -->
+  <div class="product-grid">
+    <!-- Iteramos sobre los productos -->
+    <ion-card *ngFor="let producto of productos" class="product-card">
+      <ion-img [src]="producto.img" class="product-image"></ion-img> <!-- Imagen del producto -->
+
+      <ion-card-header>
+        <ion-card-title>{{ producto.Nombre }}</ion-card-title>
+        <p>{{ producto.Categoria }}</p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p><strong>Código:</strong> {{ producto.Codigo }}</p>
+        <p><strong>Descripción:</strong> {{ producto.Descripcion }}</p>
+        <p><strong>Precio:</strong> ${{ producto.Precio }}</p>
+        <p><strong>Stock:</strong> {{ producto.Stock }} unidades</p>
+        <p><strong>Disponibilidad:</strong>
+          <span [ngClass]="{ 'text-success': producto.Disponibilidad, 'text-danger': !producto.Disponibilidad }">
+            {{ producto.Disponibilidad ? 'Disponible' : 'Agotado' }}
+          </span>
+        </p>
+        <ion-button fill="outline" color="primary" [routerLink]="['/actualizar-producto', producto.id]">
+          Editar
+        </ion-button>
+        <ion-button fill="outline" color="danger" (click)="eliminarProducto(producto.id)">
+          Eliminar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+

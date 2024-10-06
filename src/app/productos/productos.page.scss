@@ -1,0 +1,28 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+  width: 120px;          /* Ajustamos el tamaño para que no se vea demasiado grande */
+  height: 120px;         /* Igualamos el ancho y alto */
+  object-fit: cover;     /* Para que se ajuste sin perder la proporción */
+  border-radius: 50%;    /* Con esto, ¡redondita la imagen! */
+  margin: 0 auto;        /* La centramos dentro de la tarjeta */
+  display: block;        /* Pa’ que se acomode bien */
+}
+
+.text-success {
+  color: green;
+}
+
+.text-danger {
+  color: red;
+}

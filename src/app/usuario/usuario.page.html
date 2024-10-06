@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Usuarios</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/agregar-usuario">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding usuario-content">
+  <h2 class="usuario-title">Usuarios Registrados</h2>
+
+  <!-- Grid de tarjetas para cada usuario -->
+  <div class="user-grid">
+    <ion-card *ngFor="let user of usuarios" class="user-card">
+      <ion-card-header>
+        <ion-card-title>{{ user.Nombre }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="image-container">
+          <img [src]="user.img" alt="Foto de {{ user.Nombre }}" class="usuario-img">
+        </div>
+        <ion-button fill="outline" slot="end" [routerLink]="['/actualizar-usuario', user.id]">
+          Editar
+        </ion-button>
+        <ion-button fill="outline" color="danger" (click)="eliminarUsuario(user.id)">
+          Eliminar
+        </ion-button>
+
+        <table class="user-table">
+          <tr>
+            <th>Correo</th>
+            <td>{{ user.Correo }}</td>
+          </tr>
+          <tr>
+            <th>Teléfono</th>
+            <td>{{ user.Telefono }}</td>
+          </tr>
+          <tr>
+            <th>Direccion</th>
+            <td>{{ user.Direccion }}</td>
+          </tr>
+          <tr>
+            <th>Método Pago</th>
+            <td>{{ user.MetodoPago }}</td>
+          </tr>
+        </table>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

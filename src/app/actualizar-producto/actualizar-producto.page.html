@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Actualizar Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="producto.Nombre" name="Nombre" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Categoría</ion-label>
+      <ion-input [(ngModel)]="producto.Categoria" name="Categoria" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Código</ion-label>
+      <ion-input [(ngModel)]="producto.Codigo" name="Codigo" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="producto.Descripcion" name="Descripcion" required></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input [(ngModel)]="producto.Precio" name="Precio" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input [(ngModel)]="producto.Stock" name="Stock" type="number" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Disponibilidad</ion-label>
+      <ion-toggle [(ngModel)]="producto.Disponibilidad" name="Disponibilidad"></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">URL Imagen</ion-label>
+      <ion-input [(ngModel)]="producto.img" name="img" type="url"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Actualizar Producto</ion-button>
+  </form>
+</ion-content>
