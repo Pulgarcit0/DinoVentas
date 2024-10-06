@@ -1,0 +1,7 @@
+{
+  "name": "DinoVentas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
