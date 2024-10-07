@@ -1,13 +1,28 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>categoria</ion-title>
+    <ion-title>Lista de Categorías</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/agregar-categoria">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">categoria</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let categoria of categorias">
+      <ion-label>
+        <h2>{{ categoria.Nombre }}</h2>
+        <p>{{ categoria.Descripcion }}</p>
+      </ion-label>
+      <ion-button fill="outline" color="primary" [routerLink]="['/actualizar-categoria', categoria.id]">
+        Editar
+      </ion-button>
+      <ion-button fill="outline" color="danger" (click)="eliminarCategoria(categoria.id)">
+        Eliminar
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
+

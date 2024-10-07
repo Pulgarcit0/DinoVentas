@@ -37,6 +37,18 @@ const routes: Routes = [
     loadChildren: () => import('./agregar-producto/agregar-producto.module').then( m => m.AgregarProductoPageModule)
   },
   { path: 'actualizar-producto/:id', loadChildren: () => import('./actualizar-producto/actualizar-producto.module').then(m => m.ActualizarProductoPageModule) },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./categorias/categorias.module').then( m => m.CategoriasPageModule)
+  },
+  {
+    path: 'agregar-categoria',
+    loadChildren: () => import('./agregar-categoria/agregar-categoria.module').then( m => m.AgregarCategoriaPageModule)
+  },
+  {
+    path: 'actualizar-categoria/:id',
+    loadChildren: () => import('./actualizar-categoria/actualizar-categoria.module').then( m => m.ActualizarCategoriaPageModule)
+  },
 
 
 
